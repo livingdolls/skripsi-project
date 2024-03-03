@@ -1,0 +1,70 @@
+GET http://localhost/mytfidf/API/_getAllJurnal.php
+
+###
+POST http://localhost/mytfidf/API/_postJurnal.php
+Content-Type: application/json
+
+{
+    "title" : "Sistem Temu Kembali",
+    "pengarang" : "Sistem Pengendali hujan",
+    "tahun" : "2022",
+    "abstrak" : "Hello WOrld",
+    "kd_jurnal" : "FTI"
+}
+
+###
+POST http://localhost/mytfidf/_getPencarian.php
+Content-Type: application/json
+
+{
+    "query" : "penerapan cosine similarity"
+}
+
+###
+POST http://localhost/mytfidf/API/_getPencarianId.php
+Content-Type: application/json
+
+{
+    "id" : 2
+}
+
+###
+POST http://localhost/mytfidf/API/_getTokenisasi.php
+Content-Type: application/json
+
+{
+    "id" : 2
+}
+
+###
+GET http://localhost/mytfidf/_textPreprocessing.php
+
+###
+GET http://localhost/mytfidf/API/_BuatIndex.php
+
+###
+GET http://localhost/mytfidf/API/_getIndexById.php?id=36
+
+###
+GET http://localhost/mytfidf/API/_getTfidfById.php?id=36
+
+###
+GET http://localhost/mytfidf/API/_getJurnalCosine.php
+
+###
+GET http://localhost/mytfidf/API/_getCosine.php?id=36
+
+###
+GET http://localhost/mytfidf/API/_queryInfo.php
+
+###
+GET http://localhost/mytfidf/API/_hapusJurnal.php?id=44
+
+###
+POST http://localhost/mytfidf/API/_AuthLogin.php
+Content-Type: application/json
+
+{
+    "uname" : "nanang",
+    "upass" : "123456"
+}
