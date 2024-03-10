@@ -22,6 +22,9 @@ const Jurnal_Table = ({getSelectData, handleModal, user}) => {
     .then(data => setJurnal(data))
   }
 
+  console.log(jurnal)
+  console.log('reload')
+
   return (
     <MainTabel>
         <TabelHead>

@@ -1,5 +1,5 @@
 <?php
 
-    $conn = mysqli_connect("localhost","root","","mytfidf");
+    $conn = mysqli_connect("appdb","root","root","mytfidf");
 
 ?>

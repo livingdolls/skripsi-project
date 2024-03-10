@@ -79,11 +79,8 @@ function jurnal_case_folding(){
         $judul = str_replace("]", " ", $judul);
         $judul = str_replace("<", " ", $judul);
         $judul = str_replace(">", " ", $judul);
-    
-        // Bersihkan Tabel jurnal case folding
-        $conn->query("TRUNCATE jurnal_case_folding");
-        $conn->query("INSERT INTO jurnal_casefolding (jurnal_id,title,term,kode_jurnal) VALUES('$id_jurnal','$judul','$kalimat','$kode_jurnal')");	
-        
+
+        $conn->query("INSERT INTO jurnal_casefolding (jurnal_id,title,token,kd_jurnal) VALUES('$id_jurnal','$judul','$kalimat','$kode_jurnal')");	
     }
 }
 

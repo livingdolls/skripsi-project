@@ -8,7 +8,7 @@
     require('query_buatIndex.php');
 
 
-    $query = "sdsdwdw";
+    $query = "penerapan cosine similarity";
 
     query_case_folding($query);
     query_token();

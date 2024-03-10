@@ -15,12 +15,13 @@ function cross_product_jurnal(){
         $id = $result['id'];
 
         // ambil bobot pada jurnal_index pada setiap jurnal
-        $bobot = $conn->query("SELECT * FROM jurnal_bobot WHERE jurnal_id = $id ");
+        $bobot = $conn->query("SELECT * FROM jurnal_index WHERE jurnal_id = $id ");
 
  
         while($res = mysqli_fetch_array($bobot)){
             $bobot_kata = $res['bobot'];
             $token      = $res['token'];
+
             
             // bobot tiap kata akan dipangkatkan
             $cross_product = round($bobot_kata * $bobot_kata ,4);

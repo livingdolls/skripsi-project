@@ -5,7 +5,7 @@ function jurnal_filtering(){
 
     $conn->query("TRUNCATE jurnal_filtering");
     // Dapatkan token dari proses tokenisasi
-    $token = $conn->query("SELECT * FROM jurnal_token");
+    $token = $conn->query("SELECT * FROM jurnal_tokenizing");
     $file_stopword = file_get_contents("stopword.json");
     $stopword = json_decode($file_stopword);
     

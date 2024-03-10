@@ -14,7 +14,7 @@ function sqrt_cross_product(){
         $hasil     = $result['sum_cross_product'];
 
         // ambil data cross product dari query
-        $query_cross_product = $conn->query("SELECT * FROM sum_query_cross_product");
+        $query_cross_product = $conn->query("SELECT * FROM query_sum_cross_product");
         while($res = mysqli_fetch_array($query_cross_product)){
             $bobot_query = $res['result'];
             $hitung = round($hasil * $bobot_query,4); 
