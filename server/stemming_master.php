@@ -5,7 +5,7 @@ include '_conn.php';
 function cekKamus($kata){ 
     include '_conn.php';
 
-	$sql = $conn->query("SELECT * from basic_word where basic_word ='$kata' LIMIT 1");
+	$sql = $conn->query("SELECT * from tb_katadasar where katadasar ='$kata' LIMIT 1");
 	$result = mysqli_num_rows($sql);
 	
 	if($result==1){

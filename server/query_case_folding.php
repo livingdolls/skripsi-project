@@ -48,8 +48,8 @@
 
 
       // Bersihkan Tabel wuery case folding
-      $conn->query("TRUNCATE query_case_folding");
-      $masukkan=$conn->query("INSERT INTO query_case_folding (term) VALUES('$kalimat')");	
+      $conn->query("TRUNCATE query_casefolding");
+      $masukkan=$conn->query("INSERT INTO query_casefolding (term) VALUES('$kalimat')");	
     // ===AKHIR DARI CASE FOLDING===
   }
 

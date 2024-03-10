@@ -4,10 +4,15 @@ services:
     frontend:
       build:
         context: ./client/
+        dockerfile: Dockerfile
       ports:
         - "81:3000"
       networks:
         - app-network
+      volumes:
+        - ./client:/app
+        - /app/node_modules
+        - /app/.next
 
     backend:
       build:
@@ -18,9 +23,9 @@ services:
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
-      working_dir: /var/www
+      working_dir: /var/www/html
       volumes:
-        - ./server:/var/www
+        - ./server:/var/www/html
       ports:
         - "8181:80"
       networks:

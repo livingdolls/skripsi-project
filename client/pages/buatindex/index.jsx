@@ -18,6 +18,8 @@ import DataIndex from "../../components/buat_index/DataIndex";
       const [open, setOpen] = useState(false);
       const [kata, setKata] = useState([]);
 
+      console.log(kata)
+
 
       const handleRefresh = async () => {
         setLoading(true)

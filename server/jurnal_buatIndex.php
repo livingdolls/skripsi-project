@@ -4,7 +4,7 @@
         include '_conn.php';
     
         // kosongkan tabel bobot
-        $conn->query("TRUNCATE jurnal_bobot");
+        $conn->query("TRUNCATE jurnal_index");
     
         // Ambil data jurnal
         $jurnal = $conn->query("SELECT * FROM tb_jurnal ORDER BY id");
@@ -24,7 +24,7 @@
     
             foreach($token as $key => $value){
                 if($token[$key] != "") {
-                    $hitung_baris = $conn->query("SELECT jumlah FROM jurnal_bobot WHERE token = '$token[$key]' AND jurnal_id = $id ");
+                    $hitung_baris = $conn->query("SELECT jumlah FROM jurnal_index WHERE token = '$token[$key]' AND jurnal_id = $id ");
                     $jml_baris = mysqli_num_rows($hitung_baris);
     
     
@@ -33,12 +33,12 @@
                         $count = $jml_term['jumlah'];
                         $count++;
     
-                        $inp = $conn->query("UPDATE jurnal_bobot SET jumlah = $count WHERE token = '$token[$key]' AND jurnal_id = $id");
+                        $inp = $conn->query("UPDATE jurnal_index SET jumlah = $count WHERE token = '$token[$key]' AND jurnal_id = $id");
     
                     }
                     else{
-                        // Simpan ke query index dan set bobot menjadi 1
-                        $inp = $conn->query("INSERT INTO jurnal_bobot (jurnal_id,token,jumlah,bobot) VALUES ('$id','$token[$key]', 1,0)");
+                        // Simpan ke query index dan set jumlah menjadi 1
+                        $inp = $conn->query("INSERT INTO jurnal_index (jurnal_id,token,jumlah,bobot) VALUES ('$id','$token[$key]', 1,0)");
                     }
     
                 }

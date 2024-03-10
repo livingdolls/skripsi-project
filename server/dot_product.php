@@ -26,7 +26,7 @@ function dot_product(){
             $bobot = $query['bobot'];
 
             // Jumlah jurnal yang mengandung term
-            $jumlah_term = $conn->query("SELECT * FROM jurnal_bobot WHERE token = '$term' AND jurnal_id = $jurnal_id ") or die(mysqli_error());
+            $jumlah_term = $conn->query("SELECT * FROM jurnal_index WHERE token = '$term' AND jurnal_id = $jurnal_id ") or die(mysqli_error());
             $jml_term = mysqli_fetch_array($jumlah_term);
             $bobot_kata = '';
 
@@ -35,11 +35,13 @@ function dot_product(){
 
             $bobot_kata = $data1;
 
+                    
             // jumlah dot product A1xB1
+        
             $dot_product = round($bobot * $bobot_kata,4);
 
             // Masukkan ke database
-            $conn->query("INSERT INTO dot_product (jurnal_id, token, result_dot_product) VALUES ($jurnal_id,'$term',$dot_product)");
+            $conn->query("INSERT INTO dot_product (jurnal_id, token, result_dot_product) VALUES ($jurnal_id,'$term',$dot_product)") or die(mysqli_error());
         }
     }
 

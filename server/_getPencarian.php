@@ -22,6 +22,7 @@
     require('sum_query_cross_product.php');
     require('sqrt_cross_product.php');
     require('cosine_similarity.php');
+    include 'stemming_master.php';
     include('_conn.php');
 
     $data = json_decode(file_get_contents('php://input'));
@@ -34,11 +35,11 @@
     query_stemming();
     query_buatIndex();
 
-    // jurnal_case_folding();
-    // jurnal_token();
-    // jurnal_filtering();
-    // jurnal_stemming();
-    // jurnal_buatIndex();
+    jurnal_case_folding();
+    jurnal_token();
+    jurnal_filtering();
+    jurnal_stemming();
+    jurnal_buatIndex();
 
     jurnal_pembobotan();
     query_pembobotan();

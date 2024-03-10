@@ -6,7 +6,7 @@
         $conn->query("TRUNCATE query_filtering");
         
         // Dapatkan token dari proses tokenisasi
-        $token = $conn->query("SELECT * FROM query_token");
+        $token = $conn->query("SELECT * FROM query_tokenizing");
         $file_stopword = file_get_contents("stopword.json");
         $stopword = json_decode($file_stopword);
         
