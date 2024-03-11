@@ -18,6 +18,8 @@ const Preprocessing = ({ data }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  console.log(data);
+
   const handleButton = async (kunci, id) => {
     setOpen(true);
 
