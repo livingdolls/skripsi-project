@@ -18,11 +18,13 @@ export const Sidebar = () => {
             <div className="flex flex-col justify-between flex-1 mt-6">
                 <nav className="-mx-3 space-y-6 ">
                     <div className="space-y-3 ">
-                        <label className="px-3 text-xs text-gray-100 uppercase dark:text-gray-100">Main Menu</label>
+                        <label className="px-3 text-xs text-gray-100 uppercase dark:text-gray-100">
+                            Main Menu
+                        </label>
 
-                        <LinkSidebar icon={<IconHome />} link="#" name="Home" />
+                        <LinkSidebar icon={<IconHome />} link="/" name="Home" />
                         <LinkSidebar icon={<SearchIcon />} link="pencarian" name="Pencarian Jurnal" />
-                        <LinkSidebar icon={<JournalIcon />} link="#" name="Data Jurnal" />
+                        <LinkSidebar icon={<JournalIcon />} link="/data-jurnal" name="Data Jurnal" />
                         <LinkSidebar icon={<TextPreprocessingIcon />} link="#" name="Text Processing" />
                         <LinkSidebar icon={<IndexingIcon />} link="#" name="Text Indexing" />
                         <LinkSidebar icon={<TFIDFIcon />} link="#" name="Pembobotan TF-IDF" />

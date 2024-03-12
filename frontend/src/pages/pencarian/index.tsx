@@ -1,11 +1,17 @@
 import { useState } from "react"
-import { Link, createSearchParams, useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 export const PencarianPage = () => {
     const [find, setFind] = useState<string>("");
     const navigate = useNavigate();
 
     const hanldeSearch = () => {
+        if (find.length <= 0) {
+            // TODO :: Give alert
+            console.log('hentikan disini')
+            return;
+        }
+
         navigate({
             pathname: 'detail',
             search: createSearchParams({
@@ -16,7 +22,7 @@ export const PencarianPage = () => {
 
     return (
         <div className="flex items-center justify-center w-full h-full">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-1/3">
                 <div className="relative">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -34,9 +40,9 @@ export const PencarianPage = () => {
                     </svg>
                     <input
                         type="text"
-                        placeholder="Search"
+                        placeholder="Tulis Kata Kunci"
                         onChange={(e) => setFind(e.target.value)}
-                        className="w-full w-[540px] py-3 pl-12 pr-4 text-gray-500 border rounded-full outline-none bg-gray-50 focus:bg-white focus:border-red-600"
+                        className="w-full w-[3/4] py-3 pl-12 pr-4 text-gray-500 border rounded-full outline-none bg-gray-50 focus:bg-white focus:border-red-600"
                     />
                 </div>
 
