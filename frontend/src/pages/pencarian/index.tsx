@@ -20,6 +20,15 @@ export const PencarianPage = () => {
         });
     }
 
+    const handleEnter = () => {
+        navigate({
+            pathname: 'detail',
+            search: createSearchParams({
+                query: find
+            }).toString()
+        })
+    }
+
     return (
         <div className="flex items-center justify-center w-full h-full">
             <div className="flex flex-col gap-3 w-1/3">
@@ -42,6 +51,11 @@ export const PencarianPage = () => {
                         type="text"
                         placeholder="Tulis Kata Kunci"
                         onChange={(e) => setFind(e.target.value)}
+                        onKeyDown={(e) => {
+                            if(e.key === 'Enter' && find.length > 0) {
+                                handleEnter();
+                            }                            
+                        }}  
                         className="w-full w-[3/4] py-3 pl-12 pr-4 text-gray-500 border rounded-full outline-none bg-gray-50 focus:bg-white focus:border-red-600"
                     />
                 </div>

@@ -9,7 +9,7 @@ export const Pages = () => {
     return (
         <div className="flex flex-row">
             <Sidebar />
-            <div className="flex-auto">
+            <div className="flex-auto h-screen overflow-y-scroll">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/pencarian" element={<PencarianPage />} />

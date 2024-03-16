@@ -35,11 +35,11 @@
     query_stemming();
     query_buatIndex();
 
-    jurnal_case_folding();
-    jurnal_token();
-    jurnal_filtering();
-    jurnal_stemming();
-    jurnal_buatIndex();
+    // jurnal_case_folding();
+    // jurnal_token();
+    // jurnal_filtering();
+    // jurnal_stemming();
+    // jurnal_buatIndex();
 
     jurnal_pembobotan();
     query_pembobotan();
@@ -56,7 +56,7 @@
     $result = array();
     $jurnal = array();
     
-    $cs = $conn->query("SELECT jurnal.id,jurnal.title,jurnal.pengarang,jurnal.tahun_terbit,jurnal.abstrak,jurnal.kd_jurnal,cosine.cosine_similarity FROM result_cosine_similarity as cosine INNER JOIN tb_jurnal as jurnal on cosine.jurnal_id = jurnal.id WHERE cosine.cosine_similarity > 0 ORDER BY cosine.cosine_similarity DESC");
+    $cs = $conn->query("SELECT jurnal.id,jurnal.title,jurnal.pengarang,jurnal.tahun_terbit,jurnal.abstrak,jurnal.kd_jurnal,jurnal.link,cosine.cosine_similarity FROM result_cosine_similarity as cosine INNER JOIN tb_jurnal as jurnal on cosine.jurnal_id = jurnal.id WHERE cosine.cosine_similarity > 0 ORDER BY cosine.cosine_similarity DESC");
     $jml = mysqli_num_rows($cs);
 
     $result = [
@@ -66,7 +66,16 @@
     ];
 
     while($res = mysqli_fetch_object($cs)){
-        $result['data'][] = $res;
+        $result['data'][] = [
+            'abstrak' => utf8_encode($res->abstrak),
+            'id' => $res->id,
+            'cosine_similarity' => $res->cosine_similarity,
+            'kd_jurnal' => $res->kd_jurnal,
+            'pengarang' => $res->pengarang,
+            'tahun_terbit' => $res->tahun_terbit,
+            'title' => utf8_encode($res->title),
+            'link' => $res->link,
+        ];
     }
 
     echo json_encode($result);
