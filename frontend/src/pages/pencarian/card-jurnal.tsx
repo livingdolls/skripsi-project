@@ -2,11 +2,12 @@ import { TJurnal } from "../../types/jurnal-type"
 
 type TCardJurnalProps = {
     props: TJurnal
+    onclick: (id: number) => void
 }
 
-export const CardJurnal = ({props}: TCardJurnalProps) => {
+export const CardJurnal = ({props, onclick}: TCardJurnalProps) => {
     return (
-        <div className="flex flex-col gap-y-2 cursor-pointer" key={props.id}>
+        <div className="flex flex-col gap-y-2 cursor-pointer" key={props.id} onClick={() => onclick(props.id)}>
             <h3 className="text-bold text-gray-900 text-xl">{props.title}</h3>
             <div className="flex gap-x-2 flex-row text-gray-500 text-sm">
                 <h6>{props.pengarang}</h6>

@@ -10,13 +10,21 @@
 
     if($jml_data > 0){
         while($r = mysqli_fetch_object($jurnal)){
-            $data[] = $r;
+            $data[] = [
+                'abstrak' => utf8_encode($r->abstrak),
+                'id' => $r->id,
+                'kd_jurnal' => $r->kd_jurnal,
+                'pengarang' => $r->pengarang,
+                'tahun_terbit' => $r->tahun_terbit,
+                'title' => utf8_encode($r->title),
+                'link' => $r->link,
+            ];
         }
     }
     else{
         $data[] = "Tidak ditemukan data jurnal";
     }
 
-    echo json_encode($data);
+    echo json_encode($data, JSON_INVALID_UTF8_IGNORE);
 
 ?>

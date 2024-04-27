@@ -50,6 +50,10 @@ export const PencarianDetail = () => {
         fetchQuery.refetch()
     }
 
+    const handleClickJurnal = (id:number) => {
+        navigate(`jurnal/${id}`)
+    }
+
     const handleSearch = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
         if(getQuery.length <= 0) {
             // TODO :: Alert
@@ -80,7 +84,7 @@ export const PencarianDetail = () => {
                     : fetchQuery.data.jml === 0
                         ? <ZeroResult />
                         : fetchQuery.data.data.map((jurnal) => {
-                                return <CardJurnal props={jurnal} />
+                                return <CardJurnal props={jurnal} onclick={handleClickJurnal} />
                             })
                 }
             </div>

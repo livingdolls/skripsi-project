@@ -8,7 +8,7 @@
     $id = $_GET['id'];
     $res = array();
 
-    $jurnal = $conn->query("SELECT * FROM `jurnal_tokenizing` WHERE jurnal_id = $id");
+    $jurnal = $conn->query("SELECT * FROM `jurnal_stemming` WHERE jurnal_id = $id");
     $jml_data = mysqli_num_rows($jurnal);
 
     if($jml_data > 0){

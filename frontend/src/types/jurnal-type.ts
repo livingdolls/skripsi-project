@@ -17,3 +17,13 @@ export type TDataJurnal = {
     kd_jurnal: string;
     link: string;
 }
+
+export type TFCosine = {
+    akar_result : string;
+    cosine_similarity: string;
+    dot_product: string;
+}
+
+type MergeUnionOfRecordTypes<U extends Record<string, unknown>> = { [K in (U extends unknown ? keyof U : never)]: U extends unknown ? K extends keyof U ? U[K] : never : never}
+
+export type TRDetailPencarianJurnal = MergeUnionOfRecordTypes<TDataJurnal | TFCosine>

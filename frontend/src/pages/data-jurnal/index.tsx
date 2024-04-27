@@ -8,7 +8,10 @@ export const DataJurnalPage = () => {
     const fetchJurnal = useQuery<TDataJurnal[], Error>({
         queryKey: ["fetching-list-jurnal"],
         queryFn: (): Promise<TDataJurnal[]> => JurnalFetchingService(),
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: false,
+        onSuccess: (res) => {
+            console.log(res)
+        }
     })
 
     return (

@@ -1,14 +1,14 @@
-import { CosineIcon } from "../@icons/cosine"
 import { IconHome } from "../@icons/home"
-import { IndexingIcon } from "../@icons/indexing"
 import { JournalIcon } from "../@icons/journal"
-import { TextPreprocessingIcon } from "../@icons/preprocessing"
 import { SearchIcon } from "../@icons/search"
-import { TFIDFIcon } from "../@icons/tfidf"
 import { LinkSidebar } from "../@ui/link-sidebar"
 import logo from "../../assets/unisbank-logo-full.webp"
+import { useLocation } from "react-router-dom"
 
 export const Sidebar = () => {
+    const { pathname } = useLocation();
+    if (pathname === '/login') return null;
+
     return (
         <aside className="flex flex-col min-w-64 h-screen px-5 py-8 overflow-y-auto bg-unisbank-500 border-r rtl:border-r-0 rtl:border-l">
             <a href="https://unisbank.ac.id" className="flex flex-row justify-center items-center">
@@ -25,10 +25,6 @@ export const Sidebar = () => {
                         <LinkSidebar icon={<IconHome />} link="/" name="Home" />
                         <LinkSidebar icon={<SearchIcon />} link="pencarian" name="Pencarian Jurnal" />
                         <LinkSidebar icon={<JournalIcon />} link="/data-jurnal" name="Data Jurnal" />
-                        <LinkSidebar icon={<TextPreprocessingIcon />} link="#" name="Text Processing" />
-                        <LinkSidebar icon={<IndexingIcon />} link="#" name="Text Indexing" />
-                        <LinkSidebar icon={<TFIDFIcon />} link="#" name="Pembobotan TF-IDF" />
-                        <LinkSidebar icon={<CosineIcon />} link="#" name="Cosine Similarity" />
                     </div>
     
                 </nav>
